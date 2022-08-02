@@ -164,5 +164,5 @@ DATABASES['default'].update(db_from_env)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://evergreencarbon.herokuapp.com'
+    'https://evergreencarbonestimator.herokuapp.com'
 ]
