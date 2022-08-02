@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Carbon Emission Result</h1>
+  <h2>Building Parameters</h2>
+  <p id="life"><strong>Anticipated Service Life:</strong> {{life}} Years </p>
+
+  <p id = "area"><strong>Area: </strong>{{area}} m<sup>2</sup><p>
+
+
+  <h3>Material</h3>
+  <div class="content-container">
+      <div class = "material-row headers">
+          <div class = "material-name">Material</div>
+          <div class = "material-volume">Material Volume</div>
+          <div class = "material-trans">Transportation Methods</div>
+      </div>
+      {% for material in mlist %}
+      <div class = "material-row">
+          <div class = "material-name">{{material.name}}</div>
+          <div class = "material-volume">{{material.volume}} {{material.unit}}</div>
+          <div class = "material-trans">{{material.trans_name}}</div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <h3>Construction Stage Energy Usage</h3>
+  <div class="content-container">
+      <div class = "energy-row headers">
+          <div class = "energy-name">Energy</div>
+          <div class = "energy-volume">Energy Volume (Unit: TJ)</div>
+      </div>
+      {% for energy in c_energy_list %}
+      <div class = "energy-row">
+          <div class = "energy-name">{{energy.name}}</div>
+          <div class = "energy-volume">{{energy.volume}} </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <h3>Opeperatition Stage Energy Usage</h3>
+  <div class="content-container">
+      <div class = "energy-row headers">
+          <div class = "energy-name">Energy</div>
+          <div class = "energy-volume">Energy Volume (Unit: TJ)</div>
+      </div>
+      {% for energy in o_energy_list %}
+      <div class = "energy-row">
+          <div class = "energy-name">{{energy.name}}</div>
+          <div class = "energy-volume">{{energy.volume}} </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <h3>Demolition Stage Energy Usage</h3>
+  <div class="content-container">
+      <div class = "energy-row headers">
+          <div class = "energy-name">Energy</div>
+          <div class = "energy-volume">Energy Volume (Unit: TJ)</div>
+      </div>
+      {% for energy in d_energy_list %}
+      <div class = "energy-row">
+          <div class = "energy-name">{{energy.name}}</div>
+          <div class = "energy-volume">{{energy.volume}} </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <h2>Results</h2>
+  <h3><em>Building Life-Cycle Carbon Emission Evaluation: </em> {{ total_emission }} t CO<sub>2</sub> / m<sup>2</sup></h3>
+{% endblock %}
